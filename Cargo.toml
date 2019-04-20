@@ -1,0 +1,7 @@
+[package]
+name = "rshell"
+version = "0.1.0"
+authors = ["Callum Li <licall@ecs.vuw.ac.nz>"]
+edition = "2018"
+
+[dependencies]
