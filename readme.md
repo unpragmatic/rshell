@@ -15,15 +15,15 @@ if current_directory == directory::from_relative("~") {
 ### Grammer
 ```
 PROGRAM := STATEMENT*
-STATEMENT := SHELL_COMMAND | PATH_PROGRAM
-SHELL_COMMAND := "pwd" | "cd" | VARIABLE_ASSIGNMENT | EXPRESSION
-VARIABLE_ASSIGNMENT := "let " VARIABLE_NAME "=" EXPRESSION
+STATEMENT := SHELL_SCRIPT_COMMAND | SHELL_BUILTIN | PATH_PROGRAM
+SHELL_SCRIPT_COMMAND := VARIABLE_ASSIGNMENT | EXPRESSION
+VARIABLE_ASSIGNMENT := "let" VARIABLE_NAME "=" EXPRESSION
 VARiABLE_NAME := /\p{L}\w/
 EXPRESSION := STRING | NUMBER | FUNCTION | IF_EXPRESSION | LOOP_EXPRESSION
 STRING := "\"" /.*/ "\""
 NUMBER := /\d/
 FUNCTION := "(" [VARIABLE_NAME*] ")" "->" "{" FUNCTION_BODY "}"
-FUNCTION_BODY := [STATEMENT*] 
+FUNCTION_BODY := [STATEMENT*]
 
 TODO: think about function body. Should it have different behaviour
  from standard cmd interaction? My gut feeling is yes, but maybe 
